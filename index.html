@@ -72,8 +72,11 @@ p { margin: 0; }
 .dim line, .dim path { stroke: var(--red); stroke-width: 1.2; fill: none; }
 .dim text { fill: var(--red); font: 500 10px var(--mono); letter-spacing: 0.08em; }
 .thesis { font-size: clamp(1.15rem, 1rem + 0.6vw, 1.45rem); line-height: 1.45; max-width: 31ch; }
-.verb-slot { display: inline-block; color: var(--red); font-weight: 600; border-bottom: 2px solid currentColor; transition: opacity 0.25s, transform 0.25s; }
-.verb-slot.swap { opacity: 0; transform: translateY(-6px); }
+.hero h1 { position: relative; }
+.hero h1 .l1 { display: block; }
+.guide-h, .guide-v { position: absolute; pointer-events: none; background: var(--red); opacity: 0.45; }
+.guide-h { left: -100vw; right: -100vw; top: 50%; height: 1px; transform-origin: left center; }
+.guide-v { left: -14px; top: -36px; bottom: -36px; width: 1px; transform-origin: center top; }
 .hero-links { display: flex; flex-wrap: wrap; gap: 10px; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px; font: 500 0.9rem/1 var(--body);
@@ -161,6 +164,8 @@ svg.map { display: block; width: 100%; min-width: 620px; height: auto; }
 .dots.sq i { border-radius: 1px; width: 10px; height: 10px; background: var(--blue); }
 .dots.big i { width: 16px; height: 16px; }
 .dots.sm i { width: 5px; height: 5px; }
+.dots.ma i { width: 6px; height: 6px; background: var(--blue); }
+.dots.cash i { width: 6px; height: 16px; border-radius: 1px; background: color-mix(in srgb, var(--blue) 60%, var(--sheet)); }
 .dots.vol i { width: 4px; height: 4px; background: color-mix(in srgb, var(--red) 55%, var(--sheet)); }
 .tiers .note { font: 400 0.72rem/1.4 var(--mono); color: var(--muted); padding-top: 10px; }
 
@@ -265,7 +270,14 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
 
 /* ---------- Motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
-  .hero h1, .thesis, .hero-links, .titleblock, .dim { animation: rise 0.7s cubic-bezier(.2,.7,.2,1) both; }
+  .thesis, .hero-links, .titleblock, .dim { animation: rise 0.7s cubic-bezier(.2,.7,.2,1) both; }
+  .hero h1 .l1, .hero h1 .l2 { animation: ink 0.9s cubic-bezier(.6,0,.2,1) both; }
+  .hero h1 .l2 { animation-delay: 0.15s; }
+  .guide-h { animation: rule-x 1.6s 0.1s cubic-bezier(.6,0,.2,1) both; }
+  .guide-v { animation: rule-y 1.2s cubic-bezier(.6,0,.2,1) both; }
+  @keyframes ink { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes rule-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes rule-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
   .dim { animation-delay: 0.12s; }
   .thesis { animation-delay: 0.18s; }
   .hero-links { animation-delay: 0.24s; }
@@ -305,7 +317,7 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
   <div class="wrap">
     <div class="hero-text">
       <p class="label">Programs, training &amp; youth leadership · Beirut</p>
-      <h1>Hanane <span class="l2">Kalakesh</span></h1>
+      <h1><span class="l1">Hanane</span> <span class="l2">Kalakesh</span><span class="guide-h" aria-hidden="true"></span><span class="guide-v" aria-hidden="true"></span></h1>
       <svg class="dim" viewBox="0 0 520 26" aria-hidden="true">
         <line x1="1" y1="4" x2="1" y2="22"></line>
         <line x1="519" y1="4" x2="519" y2="22"></line>
@@ -313,7 +325,7 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
         <path d="M1 13 l8 -4 v8 z M519 13 l-8 -4 v8 z" style="fill: var(--red)"></path>
         <text x="260" y="9" text-anchor="middle">7 COUNTRIES · 10 YEARS · 1 PLAN</text>
       </svg>
-      <p class="thesis">I <span class="verb-slot" id="verb">manage</span> youth programs across seven Arab countries, and I build the training systems that keep them running.</p>
+      <p class="thesis">I manage youth programs across seven Arab countries, and I build the training systems that keep them running.</p>
       <div class="hero-links">
         <a class="btn primary" href="#built">What I built</a>
         <a class="btn" href="#contact">Get in touch</a>
@@ -415,10 +427,39 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
     </div>
   </section>
 
-  <section id="built">
+  <section id="mentor">
     <div class="wrap">
       <div class="sec-head">
         <p class="label"><span class="sheet-no">A-04</span> · Built work</p>
+        <h2>Growing a regional youth portfolio at Mentor Arabia</h2>
+      </div>
+      <div class="lrc">
+        <div class="lrc-text">
+          <p class="lead">I joined Mentor Arabia in 2022 supporting programs. Today I help run a portfolio that spans seven countries, has reached more than 15,000 young people and has managed over USD 4 million in budgets.</p>
+          <ul class="built">
+            <li><b>01</b><span>Promoted from Programs Assistant to Programs Associate in April 2025</span></li>
+            <li><b>02</b><span>Lead resource mobilization and donor relations for a youth portfolio of nearly USD 2 million</span></li>
+            <li><b>03</b><span>Write the proposals, budgets, logframes and donor reports behind it</span></li>
+            <li><b>04</b><span>Adapted each program to its country, so it fits the culture and the partners delivering it</span></li>
+            <li><b>05</b><span>Train facilitators and mentors, and test what they learn: my 2025 mentor training raised knowledge scores by 22%</span></li>
+            <li><b>06</b><span>Supervise and mentor program interns</span></li>
+          </ul>
+        </div>
+        <div class="tiers" id="matiers" role="img" aria-label="Portfolio: 7 countries, 15,000+ young people reached, USD 4M+ cumulative budgets, nearly USD 2M current portfolio">
+          <div class="tier"><div class="tn"><b>7</b><span>Countries</span></div><div class="dots sq" data-n="7"></div></div>
+          <div class="tier"><div class="tn"><b>15,000+</b><span>Young people reached</span></div><div class="dots ma" data-n="150"></div></div>
+          <div class="tier"><div class="tn"><b>$4M+</b><span>Cumulative budgets managed</span></div><div class="dots cash" data-n="40"></div></div>
+          <div class="tier"><div class="tn"><b>~$2M</b><span>Portfolio I lead fundraising for</span></div><div class="dots cash" data-n="20"></div></div>
+          <p class="note">1 dot = 100 young people · 1 bar = USD 100,000</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="built">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label"><span class="sheet-no">A-05</span> · Built work</p>
         <h2>The training system behind the Red Cross Youth Sector</h2>
       </div>
       <div class="lrc">
@@ -447,7 +488,7 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
   <section id="abroad">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label"><span class="sheet-no">A-05</span> · Beyond the office</p>
+        <p class="label"><span class="sheet-no">A-06</span> · Beyond the office</p>
         <h2>Learning with youth workers across Europe and the region</h2>
         <p>Through SALTO trainings and the IFRC MENA Youth Network, I keep picking up new ways to work with young people.</p>
       </div>
@@ -511,7 +552,7 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
   <section id="career">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label"><span class="sheet-no">A-06</span> · Programme of works</p>
+        <p class="label"><span class="sheet-no">A-07</span> · Programme of works</p>
         <h2>Two careers that run in parallel</h2>
         <p>Since 2016 I've grown up through the Lebanese Red Cross Youth Sector, from university volunteer to Assistant Director, alongside my program work.</p>
       </div>
@@ -527,7 +568,7 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
   <section id="skills">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label"><span class="sheet-no">A-07</span> · Specification</p>
+        <p class="label"><span class="sheet-no">A-08</span> · Specification</p>
         <h2>Core skills</h2>
       </div>
       <div class="skills">
@@ -603,14 +644,6 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
     return e;
   }
 
-  /* ---------- Rotating verb ---------- */
-  var verbs = ['manage', 'fund', 'coordinate', 'train people for', 'measure'];
-  var vi = 0, verb = document.getElementById('verb');
-  if (!reduce) setInterval(function () {
-    verb.classList.add('swap');
-    setTimeout(function () { vi = (vi + 1) % verbs.length; verb.textContent = verbs[vi]; verb.classList.remove('swap'); }, 260);
-  }, 2400);
-
   /* ---------- Map ---------- */
   var PLACES = [
     { name: 'Tunisia', sub: 'Programs', lon: 10.83, lat: 35.77, dx: 0, dy: 26, a: 'middle' },
@@ -671,8 +704,10 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
   });
 
   /* ---------- Red Cross structure: dot tiers ---------- */
-  var tierDelay = 0;
+  var tierDelay = 0, lastPanel = null;
   document.querySelectorAll('.dots').forEach(function (box) {
+    var panel = box.closest('.tiers');
+    if (panel !== lastPanel) { tierDelay = 0; lastPanel = panel; }
     var n = +box.dataset.n, frag = document.createDocumentFragment();
     var span = Math.min(1.1, 0.004 * n + 0.2);
     for (var i = 0; i < n; i++) {
@@ -776,7 +811,7 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
 
   /* ---------- Scroll reveal: only arm what starts below the fold ---------- */
   if (!reduce && 'IntersectionObserver' in window) {
-    var targets = [document.getElementById('mapbox'), document.getElementById('tiers'), document.getElementById('trips'), gantt];
+    var targets = [document.getElementById('mapbox'), document.getElementById('matiers'), document.getElementById('tiers'), document.getElementById('trips'), gantt];
     var vh = window.innerHeight;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
