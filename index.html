@@ -5,22 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hanane Kalakesh</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Hanane Kalakesh: youth programs lead at Mentor Arabia and Assistant Director of the Lebanese Red Cross Youth Sector, based in Beirut.">
+<meta name="description" content="Hanane Kalakesh designs and runs youth mentoring programs across seven Arab countries at Mentor Arabia, and is Assistant Director of the Lebanese Red Cross Youth Sector.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: an architect's drawing sheet. Drafting grid behind the hero, a title block as the ID card,
-   then the sheet's "details": figures, track record, and the two parallel careers side by side. */
+/* Layout: an architect's drawing sheet. Drafting grid and title block up top, then a plan of the region,
+   the programs on it, the method as a section drawing, a career Gantt, and measured results. */
 :root {
   --paper: #f4f7f8;
   --sheet: #ffffff;
   --ink: #14232b;
   --muted: #56676f;
   --line: #cfd8dc;
-  --grid: rgba(31, 90, 122, 0.08);
-  --blue: #1f5a7a;
+  --grid: rgba(26, 106, 158, 0.08);
+  --blue: #1a6a9e;
   --red: #c4302b;
+  --violet: #7a5fb8;
   --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --body: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -28,13 +29,15 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --paper: #0e171c; --sheet: #142128; --ink: #e5ecef; --muted: #93a4ac;
-    --line: #2a3b44; --grid: rgba(111, 179, 214, 0.07); --blue: #74b6d8; --red: #ef6a5e;
+    --line: #2a3b44; --grid: rgba(61, 143, 196, 0.08);
+    --blue: #3d8fc4; --red: #e8574c; --violet: #8f84d0;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #0e171c; --sheet: #142128; --ink: #e5ecef; --muted: #93a4ac;
-  --line: #2a3b44; --grid: rgba(111, 179, 214, 0.07); --blue: #74b6d8; --red: #ef6a5e;
+  --line: #2a3b44; --grid: rgba(61, 143, 196, 0.08);
+  --blue: #3d8fc4; --red: #e8574c; --violet: #8f84d0;
   color-scheme: dark;
 }
 
@@ -47,10 +50,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 a { color: var(--blue); text-underline-offset: 3px; }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 2px; }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 2px; }
 
 .wrap {
-  max-width: 1080px;
+  max-width: 1120px;
   margin: 0 auto;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
@@ -62,36 +65,48 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--red); outline-o
   color: var(--muted);
 }
 h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
-h2 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); font-weight: 600; letter-spacing: -0.01em; }
-h3 { font-size: 1.15rem; font-weight: 600; }
+h2 { font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.3rem); font-weight: 600; letter-spacing: -0.015em; line-height: 1.15; }
+h3 { font-size: 1.15rem; font-weight: 600; line-height: 1.3; }
 p { margin: 0; }
 
 /* ---------- Hero ---------- */
 .hero {
-  background-color: var(--paper);
   background-image:
     linear-gradient(var(--grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid) 1px, transparent 1px);
   background-size: 24px 24px;
   border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
 }
 .hero .wrap {
-  padding-block: clamp(40px, 7vw, 88px) clamp(32px, 5vw, 64px);
+  padding-block: clamp(40px, 7vw, 92px) clamp(32px, 5vw, 64px);
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
   gap: clamp(28px, 4vw, 56px);
   align-items: end;
+  position: relative;
 }
-.hero-text { display: grid; gap: 20px; min-width: 0; }
+.hero-text { display: grid; gap: 22px; min-width: 0; }
 .hero h1 {
-  font-size: clamp(2.8rem, 1.6rem + 6vw, 5.6rem);
+  font-size: clamp(3rem, 1.6rem + 6.4vw, 6rem);
   font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.035em;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
 }
-.hero h1 span { display: block; color: var(--blue); }
-.thesis { font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); line-height: 1.5; max-width: 34ch; }
-.thesis strong { font-weight: 600; }
+.hero h1 .l2 { display: block; color: var(--blue); }
+.dim { width: min(100%, 520px); height: 26px; display: block; overflow: visible; }
+.dim line, .dim path { stroke: var(--red); stroke-width: 1.2; fill: none; }
+.dim text { fill: var(--red); font: 500 10px var(--mono); letter-spacing: 0.08em; }
+.thesis { font-size: clamp(1.15rem, 1rem + 0.6vw, 1.45rem); line-height: 1.45; max-width: 30ch; }
+.verb-slot {
+  display: inline-block;
+  color: var(--red);
+  font-weight: 600;
+  border-bottom: 2px solid currentColor;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.verb-slot.swap { opacity: 0; transform: translateY(-6px); }
 .hero-links { display: flex; flex-wrap: wrap; gap: 10px; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
@@ -102,44 +117,45 @@ p { margin: 0; }
   background: transparent;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 .btn:hover { background: var(--ink); color: var(--paper); }
 .btn.primary { background: var(--ink); color: var(--paper); }
 .btn.primary:hover { background: var(--blue); border-color: var(--blue); }
 
-/* Title block, the box in the corner of every architectural drawing */
 .titleblock {
   background: var(--sheet);
   border: 1.5px solid var(--ink);
   font-family: var(--mono);
   font-size: 0.82rem;
   min-width: 0;
+  box-shadow: 6px 6px 0 var(--grid);
 }
-.titleblock .row {
-  display: grid;
-  grid-template-columns: 9.5em minmax(0, 1fr);
-  border-bottom: 1px solid var(--line);
-}
+.titleblock .row { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); border-bottom: 1px solid var(--line); }
 .titleblock .row:last-child { border-bottom: 0; }
 .titleblock .k, .titleblock .v { padding: 9px 12px; }
 .titleblock .k {
-  color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.7rem;
+  color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.68rem;
   border-right: 1px solid var(--line); display: flex; align-items: center;
 }
-.titleblock .v { color: var(--ink); overflow-wrap: anywhere; }
+.titleblock .v { overflow-wrap: anywhere; }
 .titleblock .head {
   display: flex; justify-content: space-between; align-items: center; gap: 12px;
   padding: 10px 12px; background: var(--ink); color: var(--sheet);
   letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.72rem;
 }
-.titleblock .dot { width: 9px; height: 9px; background: var(--red); border-radius: 50%; flex: none; }
+.pulse { width: 9px; height: 9px; background: var(--red); border-radius: 50%; flex: none; position: relative; }
+.pulse::after {
+  content: ""; position: absolute; inset: -4px; border-radius: 50%;
+  border: 1.5px solid var(--red); opacity: 0;
+}
 
 /* ---------- Sections ---------- */
-section { padding-block: clamp(48px, 7vw, 88px); }
-section + section { border-top: 1px solid var(--line); }
-.sec-head { display: grid; gap: 8px; margin-bottom: clamp(24px, 4vw, 40px); max-width: 60ch; }
+section { padding-block: clamp(56px, 8vw, 104px); }
+main > section + section { border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: 10px; margin-bottom: clamp(28px, 4vw, 44px); max-width: 62ch; }
 .sec-head p { color: var(--muted); }
+.sheet-no { color: var(--red); }
 
 /* Figures */
 .figures {
@@ -148,66 +164,186 @@ section + section { border-top: 1px solid var(--line); }
   border-top: 1.5px solid var(--ink);
   border-bottom: 1px solid var(--line);
 }
-.fig { padding: 20px 16px 22px 0; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.fig { padding: 22px 16px 24px 0; display: grid; gap: 6px; align-content: start; min-width: 0; }
 .fig + .fig { padding-left: 16px; border-left: 1px solid var(--line); }
 .fig .n {
-  font: 800 clamp(2rem, 1.4rem + 2vw, 2.9rem)/1 var(--display);
+  font: 800 clamp(2.1rem, 1.4rem + 2.2vw, 3.1rem)/1 var(--display);
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
 }
 .fig .n small { font-size: 0.5em; font-weight: 600; color: var(--muted); margin-left: 2px; }
 .fig p { font-size: 0.9rem; color: var(--muted); line-height: 1.45; }
 
-.countries { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; align-items: center; }
-.countries .label { margin-right: 6px; }
+/* ---------- Map ---------- */
+.mapbox {
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  position: relative;
+}
+.mapbox .cap {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 12px 16px; border-bottom: 1px solid var(--line);
+}
+.map-scroll { overflow-x: auto; }
+svg.map { display: block; width: 100%; min-width: 620px; height: auto; }
+.map .grat { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
+.map .grat-t { fill: var(--muted); font: 400 10px var(--mono); }
+.map .sea { fill: var(--muted); font: italic 400 13px var(--body); letter-spacing: 0.1em; opacity: 0.75; }
+.map .arc { fill: none; stroke: var(--blue); stroke-width: 1.6; stroke-linecap: round; opacity: 0.75; }
+.map .node { cursor: pointer; }
+.map .node .hit { fill: transparent; }
+.map .node .ring { fill: none; stroke: var(--blue); stroke-width: 1.5; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.map .node .core { fill: var(--blue); stroke: var(--sheet); stroke-width: 2; transition: r 0.2s; }
+.map .node.home .core { fill: var(--red); }
+.map .node.home .ring { stroke: var(--red); }
+.map .node text { fill: var(--ink); font: 600 13px var(--body); paint-order: stroke; stroke: var(--sheet); stroke-width: 4px; stroke-linejoin: round; }
+.map .node text.sub { font: 400 10.5px var(--mono); fill: var(--muted); }
+.map .node:hover .core, .map .node.on .core, .map .node:focus .core { r: 9; }
+.map .node.on text:not(.sub) { fill: var(--red); }
+.map .node:focus { outline: none; }
+.map .node:focus-visible .hit { stroke: var(--red); stroke-width: 2; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 22px 18px; align-items: center; }
 .chip {
   font: 500 0.82rem/1 var(--mono);
-  padding: 8px 11px;
+  padding: 9px 12px;
   border: 1px solid var(--line);
   background: var(--sheet);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
 }
-.chip.home { border-color: var(--red); color: var(--red); }
+.chip:hover { border-color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chip .ct { color: var(--muted); margin-left: 6px; }
+.chip[aria-pressed="true"] .ct { color: inherit; opacity: 0.7; }
 
-/* Two tracks side by side */
-.tracks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 48px); }
-.track { min-width: 0; }
-.track-title {
-  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
-  padding-bottom: 12px; border-bottom: 1.5px solid var(--ink); margin-bottom: 4px;
-}
-.track-title .label { white-space: nowrap; }
-.role {
-  display: grid;
-  grid-template-columns: 7.5em minmax(0, 1fr);
-  gap: 16px;
-  padding-block: 18px;
-  border-bottom: 1px solid var(--line);
-}
-.role .when { font: 400 0.8rem/1.5 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
-.role .what { display: grid; gap: 6px; min-width: 0; }
-.role .org { font-size: 0.88rem; color: var(--muted); }
-.role ul { margin: 4px 0 0; padding-left: 1.1em; display: grid; gap: 4px; font-size: 0.95rem; }
-.role ul li::marker { color: var(--blue); }
-.role.now h3::after {
-  content: "Current";
-  font: 500 0.66rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--red); border: 1px solid currentColor; padding: 3px 6px; margin-left: 10px;
-  vertical-align: 3px;
-}
-
-/* Programs */
-.programs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; }
+.programs { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 16px; }
 .program {
   background: var(--sheet);
   border: 1px solid var(--line);
   padding: 20px;
   display: grid; gap: 10px; align-content: start;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
 }
-.program .where { font: 500 0.72rem/1.3 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+.program:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -18px var(--blue); border-color: var(--blue); }
+.program .where { font: 500 0.7rem/1.3 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+.program .key {
+  font: 800 1.7rem/1 var(--display); letter-spacing: -0.02em; color: var(--ink);
+  padding-top: 4px;
+}
+.program .key small { display: block; font: 500 0.72rem/1.4 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
 .program p { font-size: 0.93rem; color: var(--muted); }
+.program .by { font-size: 0.82rem; color: var(--ink); border-top: 1px dashed var(--line); padding-top: 10px; margin-top: 2px; }
+.program .tag {
+  position: absolute; top: 16px; right: 16px;
+  font: 500 0.62rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--red); border: 1px solid currentColor; padding: 4px 6px;
+}
+.program.dim { opacity: 0.28; transform: none; box-shadow: none; }
+.empty-note { color: var(--muted); font-size: 0.95rem; padding: 4px 0 0; }
+
+/* ---------- Method ---------- */
+.method {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  position: relative;
+  border-top: 1.5px solid var(--ink);
+}
+.method::before {
+  content: ""; position: absolute; left: 0; top: -1.5px; height: 3px;
+  width: var(--prog, 0%); background: var(--red); transition: width 0.6s ease;
+}
+.step {
+  padding: 22px 16px 8px 0;
+  display: grid; gap: 8px; align-content: start; min-width: 0;
+  transition: color 0.3s;
+}
+.step + .step { padding-left: 16px; border-left: 1px solid var(--line); }
+.step .no { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.08em; color: var(--muted); transition: color 0.3s; }
+.step h3 { font-size: 1.05rem; }
+.step p { font-size: 0.88rem; color: var(--muted); }
+.step .eg { font: 400 0.76rem/1.45 var(--mono); color: var(--blue); }
+.step.active .no { color: var(--red); }
+.step.active h3 { color: var(--red); }
+
+/* ---------- Career Gantt ---------- */
+.legend { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 16px; }
+.legend span { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; }
+.legend i { width: 14px; height: 8px; border-radius: 4px; display: inline-block; }
+.gantt { border-top: 1.5px solid var(--ink); position: relative; }
+.g-axis, .g-row { display: grid; grid-template-columns: minmax(0, 15em) minmax(0, 1fr); gap: 16px; align-items: center; }
+.g-axis { padding-block: 10px 6px; border-bottom: 1px solid var(--line); }
+.g-years { position: relative; height: 16px; }
+.g-years span { position: absolute; transform: translateX(-50%); font: 400 0.7rem/1 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.g-years span:last-child { transform: translateX(-100%); }
+.g-group { padding: 16px 0 4px; }
+.g-row { padding-block: 5px; }
+.g-name { font-size: 0.88rem; min-width: 0; }
+.g-name small { display: block; color: var(--muted); font-size: 0.76rem; }
+.g-track {
+  position: relative; height: 22px;
+  background-image: linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: calc(100% / 12) 100%;
+}
+.bar {
+  position: absolute; top: 4px; height: 14px; border-radius: 4px;
+  background: var(--c);
+  transform-origin: left center;
+  cursor: default;
+}
+.bar.ongoing { border-radius: 4px 0 0 4px; }
+.bar.ongoing::after {
+  content: ""; position: absolute; right: -8px; top: 0; width: 8px; height: 14px;
+  background: repeating-linear-gradient(90deg, var(--c) 0 2px, transparent 2px 4px);
+}
+.g-now { position: absolute; top: 0; bottom: 0; width: 0; border-left: 1.5px dashed var(--red); pointer-events: none; }
+.g-now span {
+  position: absolute; top: 2px; right: 6px; white-space: nowrap;
+  font: 500 0.66rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--red);
+}
+.tip {
+  position: fixed; z-index: 10; pointer-events: none;
+  background: var(--ink); color: var(--paper);
+  font-size: 0.82rem; line-height: 1.4; padding: 8px 10px; max-width: 260px;
+  box-shadow: 0 8px 20px -10px rgba(0,0,0,0.5);
+}
+.tip b { display: block; font-weight: 600; }
+.tip span { opacity: 0.75; font-family: var(--mono); font-size: 0.74rem; }
+
+/* ---------- Results ---------- */
+.results { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 32px); }
+.panel { background: var(--sheet); border: 1px solid var(--line); padding: clamp(18px, 3vw, 28px); display: grid; gap: 18px; align-content: start; min-width: 0; }
+.panel h3 { font-size: 1.2rem; }
+.panel .sub { color: var(--muted); font-size: 0.9rem; }
+.hbars { display: grid; gap: 14px; }
+.hbar { display: grid; grid-template-columns: 6.5em minmax(0, 1fr) 3.5em; gap: 12px; align-items: center; }
+.hbar .nm { font-size: 0.88rem; }
+.hbar .tr { height: 26px; position: relative; border-left: 1.5px solid var(--ink); }
+.hbar .fl { position: absolute; left: 0; top: 4px; bottom: 4px; border-radius: 0 4px 4px 0; transform-origin: left center; }
+.hbar .vl { font: 600 0.95rem/1 var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
+.hbar.pre .fl { background: color-mix(in srgb, var(--blue) 40%, var(--sheet)); }
+.hbar.post .fl { background: var(--blue); }
+.ticks { display: grid; grid-template-columns: 6.5em minmax(0, 1fr) 3.5em; gap: 12px; }
+.ticks div { position: relative; height: 14px; }
+.ticks span { position: absolute; transform: translateX(-50%); font: 400 0.68rem/1 var(--mono); color: var(--muted); }
+.ticks span:first-child { transform: none; }
+.ticks span:last-child { transform: translateX(-100%); }
+.delta { display: flex; gap: 28px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 16px; }
+.delta div { display: grid; gap: 2px; }
+.delta b { font: 800 2rem/1 var(--display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.delta span { font-size: 0.84rem; color: var(--muted); }
+.ringwrap { display: flex; gap: 18px; align-items: center; }
+.ring { width: 112px; height: 112px; flex: none; }
+.ring circle { fill: none; stroke-width: 10; }
+.ring .bg { stroke: var(--line); }
+.ring .fg { stroke: var(--red); stroke-linecap: round; stroke-dasharray: var(--circ); stroke-dashoffset: var(--off); transform: rotate(-90deg); transform-origin: center; }
+.ring text { fill: var(--ink); font: 800 26px var(--display); }
+.big-quote { font: 600 clamp(1.15rem, 1rem + 0.6vw, 1.4rem)/1.4 var(--display); }
 
 /* Skills */
-.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1.5px solid var(--ink); }
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1.5px solid var(--ink); }
 .skill { padding: 20px 20px 22px 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
 .skill + .skill { padding-left: 20px; border-left: 1px solid var(--line); }
 .skill:nth-child(3n+1) { padding-left: 0; border-left: 0; }
@@ -220,51 +356,77 @@ section + section { border-top: 1px solid var(--line); }
 .found ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .found li { display: grid; gap: 2px; }
 .found li span { font-size: 0.88rem; color: var(--muted); }
-.arch-note {
-  border-left: 2px solid var(--red);
-  padding: 4px 0 4px 14px;
-  font-size: 0.95rem;
-}
+.arch-note { border-left: 2px solid var(--red); padding: 4px 0 4px 14px; font-size: 0.95rem; }
 
 /* Contact */
-.contact { background: var(--ink); color: var(--paper); border-top: 0; }
+.contact { background: var(--ink); color: var(--paper); }
 .contact .wrap { display: grid; gap: 24px; }
-.contact h2 { font-size: clamp(1.8rem, 1.3rem + 2vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em; max-width: 20ch; }
+.contact h2 { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 3.1rem); font-weight: 800; letter-spacing: -0.025em; max-width: 18ch; }
 .contact .label { color: color-mix(in srgb, var(--paper) 65%, transparent); }
 .contact-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.contact .email {
-  font: 500 clamp(1rem, 0.9rem + 0.6vw, 1.3rem)/1.2 var(--mono);
-  user-select: all; overflow-wrap: anywhere;
-}
+.contact .email { font: 500 clamp(1rem, 0.9rem + 0.6vw, 1.3rem)/1.2 var(--mono); user-select: all; overflow-wrap: anywhere; }
 .contact .btn { border-color: var(--paper); color: var(--paper); }
 .contact .btn:hover { background: var(--paper); color: var(--ink); }
 .contact a.plain { color: var(--paper); }
 .copied { font: 400 0.8rem var(--mono); color: color-mix(in srgb, var(--paper) 70%, transparent); }
 footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
 
-/* Responsive */
-@media (max-width: 880px) {
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
   .hero .wrap { grid-template-columns: minmax(0, 1fr); }
   .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fig, .fig + .fig { padding: 18px 12px 18px 0; border-left: 0; }
   .fig:nth-child(2n) { padding-left: 14px; border-left: 1px solid var(--line); }
   .fig:nth-child(n+3) { border-top: 1px solid var(--line); }
-  .fig:last-child { grid-column: 1 / -1; padding-left: 0; border-left: 0; }
-  .tracks, .found { grid-template-columns: minmax(0, 1fr); }
+  .fig:last-child { grid-column: 1 / -1; }
+  .method { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .step, .step + .step { padding: 18px 12px 14px 0; border-left: 0; }
+  .step:nth-child(2n) { padding-left: 14px; border-left: 1px solid var(--line); }
+  .step:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .results, .found { grid-template-columns: minmax(0, 1fr); }
   .skills { grid-template-columns: minmax(0, 1fr); }
   .skill, .skill + .skill { padding-left: 0; border-left: 0; }
   .skill + .skill { border-top: 1px solid var(--line); }
 }
-@media (max-width: 420px) {
-  .role { grid-template-columns: minmax(0, 1fr); gap: 6px; }
-  .titleblock .row { grid-template-columns: 7.5em minmax(0, 1fr); }
+@media (max-width: 620px) {
+  .g-axis, .g-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .g-axis > div:first-child { display: none; }
+  .g-row { padding-block: 8px; }
 }
+@media (max-width: 420px) {
+  .titleblock .row { grid-template-columns: 7.5em minmax(0, 1fr); }
+  .method { grid-template-columns: minmax(0, 1fr); }
+  .step:nth-child(2n) { padding-left: 0; border-left: 0; }
+  .step + .step { border-top: 1px solid var(--line); }
+  .ringwrap { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- Motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
-  .hero h1, .thesis, .hero-links, .titleblock { animation: rise 0.6s ease-out both; }
-  .thesis { animation-delay: 0.08s; }
-  .hero-links { animation-delay: 0.14s; }
-  .titleblock { animation-delay: 0.2s; }
-  @keyframes rise { from { transform: translateY(10px); } to { transform: none; } }
+  .hero h1, .thesis, .hero-links, .titleblock, .dim { animation: rise 0.7s cubic-bezier(.2,.7,.2,1) both; }
+  .hero h1 .l2 { animation: rise 0.7s 0.06s cubic-bezier(.2,.7,.2,1) both; display: block; }
+  .dim { animation-delay: 0.12s; }
+  .thesis { animation-delay: 0.18s; }
+  .hero-links { animation-delay: 0.24s; }
+  .titleblock { animation-delay: 0.3s; }
+  .dim .draw { stroke-dasharray: 600; animation: draw 1.4s 0.3s ease-out both; }
+  .pulse::after { animation: ping 2.4s ease-out infinite; }
+  @keyframes rise { from { transform: translateY(14px); } to { transform: none; } }
+  @keyframes draw { from { stroke-dashoffset: 600; } to { stroke-dashoffset: 0; } }
+  @keyframes ping { 0% { opacity: 0.9; transform: scale(0.6); } 80%, 100% { opacity: 0; transform: scale(2.2); } }
+
+  /* Scroll-triggered pieces: JS adds .armed only to things below the fold, so the page is complete without JS */
+  .armed .arc { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); }
+  .in .arc { transition: stroke-dashoffset 1.3s cubic-bezier(.4,0,.2,1); transition-delay: var(--d, 0s); stroke-dashoffset: 0; }
+  .armed .node { opacity: 0; }
+  .in .node { opacity: 1; transition: opacity 0.5s; transition-delay: calc(var(--d, 0s) + 0.9s); }
+  .in .node .ring { animation: ping 2.8s ease-out infinite; animation-delay: calc(var(--d, 0s) + 1.4s); }
+  .armed .bar, .armed .fl { transform: scaleX(0); }
+  .in .bar, .in .fl { transform: scaleX(1); transition: transform 0.9s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
+  .armed .ring .fg { stroke-dashoffset: var(--circ); }
+  .in .ring .fg { transition: stroke-dashoffset 1.4s cubic-bezier(.2,.7,.2,1) 0.3s; }
+  .armed.program, .armed .program { transform: translateY(16px); }
+  .in.program, .in .program { transform: none; transition: transform 0.6s cubic-bezier(.2,.7,.2,1), box-shadow 0.25s, border-color 0.25s, opacity 0.3s; transition-delay: var(--d, 0s); }
 }
 </style>
 </head>
@@ -274,196 +436,165 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
   <div class="wrap">
     <div class="hero-text">
       <p class="label">Youth programs &amp; capacity building · Beirut</p>
-      <h1>Hanane <span>Kalakesh</span></h1>
-      <p class="thesis">I design and run <strong>youth mentoring programs across seven Arab countries</strong> at Mentor Arabia, and I lead the Youth Sector of the Lebanese Red Cross as Assistant Director.</p>
+      <h1>Hanane <span class="l2">Kalakesh</span></h1>
+      <svg class="dim" viewBox="0 0 520 26" aria-hidden="true">
+        <line x1="1" y1="4" x2="1" y2="22"></line>
+        <line x1="519" y1="4" x2="519" y2="22"></line>
+        <path class="draw" d="M1 13 H519"></path>
+        <path d="M1 13 l8 -4 v8 z M519 13 l-8 -4 v8 z" style="fill: var(--red)"></path>
+        <text x="260" y="9" text-anchor="middle">7 COUNTRIES · 10 YEARS · 1 PLAN</text>
+      </svg>
+      <p class="thesis">I <span class="verb-slot" id="verb">design</span> youth mentoring programs across seven Arab countries, and I lead the Lebanese Red Cross Youth Sector as Assistant Director.</p>
       <div class="hero-links">
-        <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn primary" href="#work">See the work</a>
+        <a class="btn" href="#contact">Get in touch</a>
         <a class="btn" href="https://linkedin.com/in/hanan-kalakish" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
 
     <aside class="titleblock" aria-label="Profile summary">
-      <div class="head"><span>Sheet HK-01 · Profile</span><span class="dot" aria-hidden="true"></span></div>
+      <div class="head"><span>Sheet HK-01 · Profile</span><span class="pulse" aria-hidden="true"></span></div>
       <div class="row"><div class="k">Role</div><div class="v">Programs Associate, Mentor Arabia</div></div>
       <div class="row"><div class="k">Volunteer</div><div class="v">Assistant Director, Youth Sector, Lebanese Red Cross</div></div>
-      <div class="row"><div class="k">Region</div><div class="v">IFRC MENA Youth Network</div></div>
+      <div class="row"><div class="k">Region</div><div class="v">Regional Youth Coordinator, IFRC MENA Youth Network</div></div>
       <div class="row"><div class="k">Trained as</div><div class="v">Architect (MArch, Lebanese University)</div></div>
       <div class="row"><div class="k">Languages</div><div class="v">Arabic (native), English (fluent)</div></div>
-      <div class="row"><div class="k">Based in</div><div class="v">Beirut, Lebanon</div></div>
       <div class="row"><div class="k">Revision</div><div class="v">October 2026</div></div>
     </aside>
   </div>
 </header>
 
 <main>
+  <!-- Figures -->
   <section id="impact">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label">At a glance</p>
+        <p class="label"><span class="sheet-no">A-01</span> · At a glance</p>
         <h2>Five years of programs, ten years of volunteering</h2>
       </div>
-      <div class="figures">
-        <div class="fig"><div class="n">15,000<small>+</small></div><p>young people reached through Mentor Arabia programs</p></div>
-        <div class="fig"><div class="n">$4M<small>+</small></div><p>in cumulative program budgets managed</p></div>
-        <div class="fig"><div class="n">7</div><p>countries in the portfolio, with national teams in each</p></div>
-        <div class="fig"><div class="n">200<small>+</small></div><p>trainers supervised across 34 Red Cross centers</p></div>
-        <div class="fig"><div class="n">2,500<small>+</small></div><p>volunteers covered by the yearly training plans I built</p></div>
-      </div>
-      <div class="countries" aria-label="Countries">
-        <span class="label">Where the work runs</span>
-        <span class="chip home">Lebanon</span>
-        <span class="chip">Saudi Arabia</span>
-        <span class="chip">Jordan</span>
-        <span class="chip">Kuwait</span>
-        <span class="chip">Qatar</span>
-        <span class="chip">Tunisia</span>
-        <span class="chip">Egypt</span>
+      <div class="figures" id="figures">
+        <div class="fig"><div class="n"><span data-count="15000">15,000</span><small>+</small></div><p>young people reached through Mentor Arabia programs</p></div>
+        <div class="fig"><div class="n">$<span data-count="4">4</span>M<small>+</small></div><p>in cumulative program budgets managed</p></div>
+        <div class="fig"><div class="n"><span data-count="7">7</span></div><p>countries in the portfolio, with national teams in each</p></div>
+        <div class="fig"><div class="n"><span data-count="200">200</span><small>+</small></div><p>trainers supervised across 34 Red Cross centers</p></div>
+        <div class="fig"><div class="n"><span data-count="2500">2,500</span><small>+</small></div><p>volunteers covered by the yearly training plans I built</p></div>
       </div>
     </div>
   </section>
 
-  <section id="experience">
+  <!-- Map + programs -->
+  <section id="work">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label">Experience</p>
+        <p class="label"><span class="sheet-no">A-02</span> · Site plan</p>
+        <h2>Where the work runs</h2>
+        <p>Every line starts in Beirut. Tap a country to see the programs there.</p>
+      </div>
+
+      <div class="mapbox reveal" id="mapbox">
+        <div class="cap"><span class="label">Plan · Eastern Mediterranean, North Africa &amp; the Gulf</span><span class="label">Not to scale</span></div>
+        <div class="map-scroll">
+          <svg class="map" id="map" viewBox="-20 -24 780 300" role="group" aria-label="Map of countries where Hanane's programs run">
+            <g id="grat"></g>
+            <text class="sea" x="150" y="92">MEDITERRANEAN SEA</text>
+            <text class="sea" x="452" y="226" transform="rotate(58 452 226)">RED SEA</text>
+            <text class="sea" x="606" y="108" transform="rotate(-38 606 108)">GULF</text>
+            <g id="arcs"></g>
+            <g id="nodes"></g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="chips" id="chips" role="group" aria-label="Filter programs by country"></div>
+      <div class="programs reveal" id="programs"></div>
+      <p class="empty-note" id="empty" hidden></p>
+    </div>
+  </section>
+
+  <!-- Method -->
+  <section id="method">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label"><span class="sheet-no">A-03</span> · Section drawing</p>
+        <h2>How I build a program</h2>
+        <p>The same six stages run through every program I manage, from first concept note to final donor report.</p>
+      </div>
+      <div class="method" id="steps">
+        <div class="step"><span class="no">STAGE 1</span><h3>Assess &amp; design</h3><p>Needs assessments, program design, and adapting each model to its country and culture.</p><span class="eg">e.g. YPM: 10 sessions over 3 months</span></div>
+        <div class="step"><span class="no">STAGE 2</span><h3>Fund</h3><p>Concept notes, proposals, budgets, logframes and work plans.</p><span class="eg">e.g. YEED with Education Above All</span></div>
+        <div class="step"><span class="no">STAGE 3</span><h3>Partner</h3><p>MoUs and working relationships with universities, foundations and NGOs.</p><span class="eg">e.g. University of Monastir</span></div>
+        <div class="step"><span class="no">STAGE 4</span><h3>Train trainers</h3><p>Training of Trainers, coaching, and onboarding mentors on the tools.</p><span class="eg">e.g. 15 mentors trained, Aug 2025</span></div>
+        <div class="step"><span class="no">STAGE 5</span><h3>Deliver</h3><p>Outreach, sessions, workshops and events, run with national teams.</p><span class="eg">e.g. Career in Tourism workshop</span></div>
+        <div class="step"><span class="no">STAGE 6</span><h3>Measure &amp; report</h3><p>Pre and post tests, monitoring, impact assessment and donor reports.</p><span class="eg">e.g. +22% mentor knowledge</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career -->
+  <section id="career">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label"><span class="sheet-no">A-04</span> · Programme of works</p>
         <h2>Two careers that run in parallel</h2>
         <p>My paid work is at Mentor Arabia. Since 2016 I've also grown up through the Lebanese Red Cross Youth Sector, from university volunteer to Assistant Director.</p>
       </div>
-
-      <div class="tracks">
-        <div class="track">
-          <div class="track-title"><h3>Mentor Arabia</h3><span class="label">2022 – now</span></div>
-
-          <div class="role now">
-            <div class="when">Apr 2025 –<br>present</div>
-            <div class="what">
-              <h3>Programs Associate</h3>
-              <p class="org">Mentor Arabia · Beirut</p>
-              <ul>
-                <li>Design and run youth mentoring programs across seven Arab countries</li>
-                <li>Lead resource mobilization and donor relations for a portfolio of nearly USD 2 million</li>
-                <li>Write proposals, budgets, logframes and work plans; prepare donor reports</li>
-                <li>Guide national teams and partners in each country</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="role">
-            <div class="when">May 2022 –<br>Apr 2025</div>
-            <div class="what">
-              <h3>Programs Assistant</h3>
-              <p class="org">Mentor Arabia · Beirut</p>
-              <ul>
-                <li>Adapted and contextualized programs for each country and culture</li>
-                <li>Trained facilitators so programs ran the same way across locations</li>
-                <li>Ran monitoring and evaluation and fed the findings back into program design</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="role">
-            <div class="when">Jun 2021 –<br>Apr 2022</div>
-            <div class="what">
-              <h3>Life Skills Content Developer &amp; Trainer</h3>
-              <p class="org">Independent consultant · Lebanon</p>
-              <ul>
-                <li>Built the online life skills curriculum for Unplugged Plus, for adolescents</li>
-                <li>Wrote coaching materials and mentorship frameworks for peer-support initiatives</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="track">
-          <div class="track-title"><h3>Lebanese Red Cross &amp; IFRC</h3><span class="label">2016 – now</span></div>
-
-          <div class="role now">
-            <div class="when">2024 –<br>present</div>
-            <div class="what">
-              <h3>Assistant Director, Youth Sector</h3>
-              <p class="org">Lebanese Red Cross</p>
-              <ul>
-                <li>Lead youth sector programs nationally</li>
-                <li>Shape training frameworks, leadership development and operational strategy</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="role">
-            <div class="when">2022 –<br>2024</div>
-            <div class="what">
-              <h3>Training Committee Coordinator</h3>
-              <p class="org">Lebanese Red Cross</p>
-              <ul>
-                <li>Supervised a national network of 200+ trainers across 34 centers</li>
-                <li>Led a 20-person task force on training standards</li>
-                <li>Built tracking tools that made monitoring 30% more efficient</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="role">
-            <div class="when">2022 –<br>present</div>
-            <div class="what">
-              <h3>Regional Youth Coordinator</h3>
-              <p class="org">MENA Youth Network, IFRC</p>
-              <ul>
-                <li>Co-host monthly virtual Youth Cafés connecting young humanitarian leaders across MENA National Societies</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="role">
-            <div class="when">2016 –<br>present</div>
-            <div class="what">
-              <h3>Trainer, Coach &amp; Volunteer Manager</h3>
-              <p class="org">Lebanese Red Cross</p>
-              <ul>
-                <li>Run Training of Trainers and coach new facilitators</li>
-                <li>Wrote modules on management skills, the project cycle and center operations</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <div class="legend" aria-hidden="true">
+        <span><i style="background: var(--blue)"></i>Program work</span>
+        <span><i style="background: var(--red)"></i>Lebanese Red Cross &amp; IFRC</span>
+        <span><i style="background: var(--violet)"></i>Education</span>
       </div>
+      <div class="gantt reveal" id="gantt"></div>
     </div>
   </section>
 
-  <section id="programs">
+  <!-- Results -->
+  <section id="results">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label">Selected programs</p>
-        <h2>Some of the work behind the numbers</h2>
+        <p class="label"><span class="sheet-no">A-05</span> · Measured</p>
+        <h2>What a training looks like in numbers</h2>
+        <p>Youth Peer Mentoring with Lebanese Spotlight, funded by Schneider Electric. I trained 15 mentors in August 2025 and tested them before and after.</p>
       </div>
-      <div class="programs">
-        <article class="program">
-          <span class="where">Tunisia · with TUI</span>
-          <h3>FutureShapers</h3>
-          <p>Project management of the youth program in Tunisia, from the courses platform to training of trainers and the closing ceremony.</p>
-        </article>
-        <article class="program">
-          <span class="where">Regional · with Education Above All</span>
-          <h3>YEED</h3>
-          <p>Youth program delivered with Education Above All, including planning, partner coordination and financial reporting.</p>
-        </article>
-        <article class="program">
-          <span class="where">Saudi Arabia &amp; online</span>
-          <h3>Unplugged Plus</h3>
-          <p>Life skills program for adolescents. I wrote its online curriculum and support its delivery with partners.</p>
-        </article>
-        <article class="program">
-          <span class="where">Saudi Arabia · with CCA</span>
-          <h3>Positive Parenting</h3>
-          <p>Parenting program delivered with CCA in Saudi Arabia, alongside Unplugged Plus.</p>
-        </article>
+      <div class="results reveal" id="resultsbox">
+        <div class="panel">
+          <div>
+            <h3>Mentor knowledge test</h3>
+            <p class="sub">Average score, 15 mentors, 19–22 August 2025</p>
+          </div>
+          <div class="hbars" role="table" aria-label="Average test score before and after training">
+            <div class="hbar pre" role="row"><span class="nm" role="rowheader">Before</span><div class="tr"><div class="fl" style="width: 76.4%"></div></div><span class="vl" role="cell">38.2</span></div>
+            <div class="hbar post" role="row"><span class="nm" role="rowheader">After</span><div class="tr"><div class="fl" style="width: 98%; --d: 0.25s"></div></div><span class="vl" role="cell">49.0</span></div>
+          </div>
+          <div class="ticks" aria-hidden="true"><i></i><div><span style="left:0">0</span><span style="left:20%">10</span><span style="left:40%">20</span><span style="left:60%">30</span><span style="left:80%">40</span><span style="left:100%">50</span></div><i></i></div>
+          <div class="delta">
+            <div><b>+22%</b><span>knowledge gain</span></div>
+            <div><b>15</b><span>mentors trained</span></div>
+            <div><b>10</b><span>sessions per mentee cycle</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="ringwrap">
+            <svg class="ring" viewBox="0 0 120 120" role="img" aria-label="97% participant satisfaction">
+              <circle class="bg" cx="60" cy="60" r="50"></circle>
+              <circle class="fg" cx="60" cy="60" r="50" style="--circ: 314.16; --off: 9.42"></circle>
+              <text x="60" y="69" text-anchor="middle">97%</text>
+            </svg>
+            <div><h3>Satisfaction</h3><p class="sub">Mentors rating the training</p></div>
+          </div>
+          <div style="border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 8px;">
+            <p class="big-quote">663 young people</p>
+            <p class="sub">reached in the first Career Inspiration run with the Crown Prince Foundation in Jordan, across Amman and four governorates.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Skills -->
   <section id="skills">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label">What I bring</p>
+        <p class="label"><span class="sheet-no">A-06</span> · Specification</p>
         <h2>Core skills</h2>
       </div>
       <div class="skills">
@@ -477,6 +608,7 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
     </div>
   </section>
 
+  <!-- Foundations -->
   <section id="foundations">
     <div class="wrap found">
       <div>
@@ -524,23 +656,301 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
   <span class="label">Sheet HK-01 · Rev. Oct 2026</span>
 </footer>
 
+<div class="tip" id="tip" hidden></div>
+
 <script>
-  (function () {
-    var btn = document.getElementById('copy');
-    var out = document.getElementById('copied');
-    var email = document.getElementById('email');
-    btn.addEventListener('click', function () {
-      var text = email.textContent.trim();
-      function select() {
-        var r = document.createRange(); r.selectNodeContents(email);
-        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-        out.textContent = 'Selected. Press Ctrl+C to copy.';
-      }
-      try {
-        navigator.clipboard.writeText(text).then(function () { out.textContent = 'Copied'; }, select);
-      } catch (e) { select(); }
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(SVGNS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  /* ---------- Rotating verb ---------- */
+  var verbs = ['design', 'fund', 'train mentors for', 'measure', 'run'];
+  var vi = 0, verb = document.getElementById('verb');
+  if (!reduce) setInterval(function () {
+    verb.classList.add('swap');
+    setTimeout(function () { vi = (vi + 1) % verbs.length; verb.textContent = verbs[vi]; verb.classList.remove('swap'); }, 260);
+  }, 2400);
+
+  /* ---------- Data ---------- */
+  var COUNTRIES = [
+    { id: 'tunisia', name: 'Tunisia', city: 'Monastir', lon: 10.83, lat: 35.77, dx: 0, dy: 26, anchor: 'middle' },
+    { id: 'lebanon', name: 'Lebanon', city: 'Beirut', lon: 35.50, lat: 33.89, dx: -14, dy: 4, anchor: 'end', home: true },
+    { id: 'jordan', name: 'Jordan', city: 'Amman', lon: 35.93, lat: 31.95, dx: 14, dy: 8, anchor: 'start' },
+    { id: 'egypt', name: 'Egypt', city: 'Hurghada', lon: 33.81, lat: 27.26, dx: -14, dy: 4, anchor: 'end' },
+    { id: 'kuwait', name: 'Kuwait', city: 'Kuwait City', lon: 47.98, lat: 29.37, dx: 14, dy: 4, anchor: 'start' },
+    { id: 'saudi', name: 'Saudi Arabia', city: 'Riyadh', lon: 46.68, lat: 24.71, dx: 0, dy: 26, anchor: 'middle' },
+    { id: 'qatar', name: 'Qatar', city: 'Doha', lon: 51.53, lat: 25.29, dx: 14, dy: 4, anchor: 'start' }
+  ];
+  var PROGRAMS = [
+    { name: 'FutureShapers Tunisia', where: 'Tunisia', c: ['tunisia'], key: 'Phase 4', keyNote: 'now running', by: 'TUI Care Foundation · University of Monastir',
+      text: 'Peer mentoring and career workshops for young people heading into tourism, now in its fourth phase with the University of Monastir.' },
+    { name: 'FutureShapers Egypt', where: 'Egypt · Hurghada', c: ['egypt'], key: '250', keyNote: 'young women, aged 18–28', by: 'TUI Care Foundation', tag: 'Launching',
+      text: '25 female peer mentors paired with young women, plus entrepreneurship support and a tourism social-enterprise competition.' },
+    { name: 'YEED', where: 'Lebanon · Qatar', c: ['lebanon', 'qatar'], key: '2026–29', keyNote: 'three-year program', by: 'Education Above All (Silatech)',
+      text: 'Youth Empowerment & Employment for Development: a three-year youth program in Lebanon and Qatar, January 2026 to March 2029.' },
+    { name: 'Career Inspiration', where: 'Jordan', c: ['jordan'], key: '663', keyNote: 'youth in the first run', by: 'Crown Prince Foundation',
+      text: 'Professionals and social entrepreneurs talk with young people about careers. A new phase takes it beyond Amman to more governorates.' },
+    { name: 'Youth Peer Mentoring', where: 'Lebanon', c: ['lebanon'], key: '10', keyNote: 'sessions over 3 months', by: 'Schneider Electric · Lebanese Spotlight',
+      text: 'Peer mentoring for youth aged 18–30, delivered by mentors I trained, with pre and post tests on every cycle.' },
+    { name: 'Junior Academy', where: 'Lebanon · Jordan · Egypt · UAE', c: ['lebanon', 'jordan', 'egypt'], key: '13–17', keyNote: 'age group', by: 'New York Academy of Sciences · Stevens Initiative',
+      text: 'A free online STEM exchange where students solve real challenges with mentors. Mentor Arabia runs outreach to schools in the region.' },
+    { name: 'Unplugged Plus', where: 'Saudi Arabia · online', c: ['saudi'], key: 'Online', keyNote: 'curriculum I wrote', by: 'With CCA',
+      text: 'Life skills program for adolescents. I developed its online curriculum as a consultant.' },
+    { name: 'Positive Parenting', where: 'Saudi Arabia', c: ['saudi'], key: 'Parents', keyNote: 'and caregivers', by: 'With CCA',
+      text: 'A parenting program run with CCA in Saudi Arabia, alongside Unplugged Plus.' }
+  ];
+
+  /* ---------- Map ---------- */
+  var K = 14;
+  function px(lon) { return (lon - 6) * K; }
+  function py(lat) { return (37.5 - lat) * K; }
+  var grat = document.getElementById('grat');
+  [10, 20, 30, 40, 50].forEach(function (lon) {
+    el('line', { x1: px(lon), y1: -6, x2: px(lon), y2: 250, class: 'grat' }, grat);
+    el('text', { x: px(lon) + 4, y: 262, class: 'grat-t' }, grat).textContent = lon + '°E';
+  });
+  [35, 30, 25].forEach(function (lat) {
+    el('line', { x1: -10, y1: py(lat), x2: 740, y2: py(lat), class: 'grat' }, grat);
+    el('text', { x: 744, y: py(lat) + 3, class: 'grat-t' }, grat).textContent = lat + '°N';
+  });
+
+  var home = COUNTRIES[1];
+  var hx = px(home.lon), hy = py(home.lat);
+  var arcs = document.getElementById('arcs'), nodes = document.getElementById('nodes');
+  var order = 0;
+  COUNTRIES.forEach(function (c) {
+    var x = px(c.lon), y = py(c.lat);
+    var d = (order++) * 0.15;
+    if (!c.home) {
+      var mx = (hx + x) / 2, my = (hy + y) / 2;
+      var dist = Math.hypot(x - hx, y - hy);
+      var cy = my - Math.min(90, dist * 0.35);
+      var path = el('path', { d: 'M' + hx + ' ' + hy + ' Q' + mx + ' ' + cy + ' ' + x + ' ' + y, class: 'arc' }, arcs);
+      var len = path.getTotalLength ? path.getTotalLength() : 400;
+      path.style.setProperty('--len', Math.ceil(len));
+      path.style.setProperty('--d', d + 's');
+    }
+    var g = el('g', { class: 'node' + (c.home ? ' home' : ''), tabindex: '0', role: 'button', 'data-c': c.id, 'aria-label': c.name + ': show programs' }, nodes);
+    g.style.setProperty('--d', (c.home ? 0 : d) + 's');
+    el('circle', { cx: x, cy: y, r: 22, class: 'hit' }, g);
+    el('circle', { cx: x, cy: y, r: 10, class: 'ring' }, g);
+    el('circle', { cx: x, cy: y, r: c.home ? 8 : 6.5, class: 'core' }, g);
+    var t = el('text', { x: x + c.dx, y: y + c.dy - (c.anchor === 'middle' ? 0 : 2), 'text-anchor': c.anchor }, g);
+    t.textContent = c.name;
+    var s = el('text', { x: x + c.dx, y: y + c.dy + 12 - (c.anchor === 'middle' ? 0 : 2), 'text-anchor': c.anchor, class: 'sub' }, g);
+    s.textContent = c.home ? 'Beirut · base' : c.city;
+    g.addEventListener('click', function () { setFilter(filter === c.id ? 'all' : c.id); });
+    g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFilter(filter === c.id ? 'all' : c.id); } });
+  });
+
+  /* ---------- Programs + chips ---------- */
+  var grid = document.getElementById('programs');
+  PROGRAMS.forEach(function (p, i) {
+    var a = document.createElement('article');
+    a.className = 'program';
+    a.style.setProperty('--d', (i * 0.06) + 's');
+    a.dataset.c = p.c.join(' ');
+    a.innerHTML = (p.tag ? '<span class="tag">' + p.tag + '</span>' : '') +
+      '<span class="where"></span><h3></h3><div class="key"><span class="kv"></span><small></small></div><p class="tx"></p><div class="by"></div>';
+    a.querySelector('.where').textContent = p.where;
+    a.querySelector('h3').textContent = p.name;
+    a.querySelector('.kv').textContent = p.key;
+    a.querySelector('small').textContent = p.keyNote;
+    a.querySelector('.tx').textContent = p.text;
+    a.querySelector('.by').textContent = p.by;
+    grid.appendChild(a);
+  });
+
+  var chips = document.getElementById('chips');
+  var filter = 'all';
+  function count(id) { return PROGRAMS.filter(function (p) { return p.c.indexOf(id) > -1; }).length; }
+  [{ id: 'all', name: 'All countries' }].concat(COUNTRIES).forEach(function (c) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.dataset.c = c.id;
+    b.textContent = c.name;
+    var n = c.id === 'all' ? PROGRAMS.length : count(c.id);
+    var ct = document.createElement('span'); ct.className = 'ct'; ct.textContent = n; b.appendChild(ct);
+    b.addEventListener('click', function () { setFilter(c.id); });
+    chips.appendChild(b);
+  });
+  var empty = document.getElementById('empty');
+  function setFilter(id) {
+    filter = id;
+    chips.querySelectorAll('.chip').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.c === id)); });
+    nodes.querySelectorAll('.node').forEach(function (n) { n.classList.toggle('on', n.dataset.c === id); });
+    var shown = 0;
+    grid.querySelectorAll('.program').forEach(function (a) {
+      var match = id === 'all' || a.dataset.c.split(' ').indexOf(id) > -1;
+      a.classList.toggle('dim', !match);
+      if (match) shown++;
     });
-  })();
+    if (id !== 'all' && shown === 0) {
+      var c = COUNTRIES.filter(function (x) { return x.id === id; })[0];
+      empty.textContent = c.name + ' is part of the regional portfolio, with national teams I coordinate. Its program details are not listed here yet.';
+      empty.hidden = false;
+    } else empty.hidden = true;
+  }
+  setFilter('all');
+
+  /* ---------- Method: stages light up in turn ---------- */
+  var steps = document.querySelectorAll('.step'), stepBox = document.getElementById('steps'), si = 0;
+  function lightStep(i) {
+    steps.forEach(function (s, j) { s.classList.toggle('active', j === i); });
+    stepBox.style.setProperty('--prog', ((i + 1) / steps.length * 100) + '%');
+  }
+  lightStep(steps.length - 1);
+  var stepTimer = null;
+  function startSteps() {
+    if (reduce || stepTimer) return;
+    si = 0; lightStep(0);
+    stepTimer = setInterval(function () { si = (si + 1) % steps.length; lightStep(si); }, 1800);
+  }
+  steps.forEach(function (s, j) {
+    s.addEventListener('mouseenter', function () { if (stepTimer) { clearInterval(stepTimer); stepTimer = null; } lightStep(j); });
+  });
+
+  /* ---------- Career Gantt ---------- */
+  var Y0 = 2015, Y1 = 2027, NOW = 2026.79;
+  var GROUPS = [
+    { name: 'Program work', color: 'var(--blue)', rows: [
+      { r: 'Programs Associate', o: 'Mentor Arabia', s: 2025.25, e: null, t: 'Apr 2025 – present' },
+      { r: 'Programs Assistant', o: 'Mentor Arabia', s: 2022.34, e: 2025.25, t: 'May 2022 – Apr 2025' },
+      { r: 'Life Skills Content Developer', o: 'Independent consultant', s: 2021.42, e: 2022.25, t: 'Jun 2021 – Apr 2022' }
+    ]},
+    { name: 'Lebanese Red Cross & IFRC', color: 'var(--red)', rows: [
+      { r: 'Assistant Director, Youth Sector', o: 'Lebanese Red Cross', s: 2024, e: null, t: '2024 – present' },
+      { r: 'Regional Youth Coordinator', o: 'IFRC MENA Youth Network', s: 2022, e: null, t: '2022 – present' },
+      { r: 'Training Committee Coordinator', o: 'Lebanese Red Cross', s: 2022, e: 2024, t: '2022 – 2024' },
+      { r: 'Trainer & Coach', o: 'Lebanese Red Cross', s: 2019, e: null, t: '2019 – present' },
+      { r: 'Volunteer Manager', o: 'Lebanese Red Cross', s: 2017, e: null, t: '2017 – present' },
+      { r: 'General Assembly Member', o: 'Lebanese Red Cross', s: 2016, e: null, t: '2016 – present' }
+    ]},
+    { name: 'Education', color: 'var(--violet)', rows: [
+      { r: 'Master of Architecture', o: 'Lebanese University', s: 2019, e: 2021, t: '2019 – 2021' },
+      { r: 'Bachelor of Architecture', o: 'Lebanese University', s: 2015, e: 2019, t: '2015 – 2019' }
+    ]}
+  ];
+  function pct(y) { return ((y - Y0) / (Y1 - Y0) * 100); }
+  var gantt = document.getElementById('gantt');
+  var axis = document.createElement('div'); axis.className = 'g-axis';
+  var yrs = '';
+  for (var y = Y0; y <= Y1; y += 2) yrs += '<span style="left:' + pct(y) + '%">' + y + '</span>';
+  axis.innerHTML = '<div class="label">Role</div><div class="g-years">' + yrs + '</div>';
+  gantt.appendChild(axis);
+  var tip = document.getElementById('tip');
+  var bi = 0;
+  GROUPS.forEach(function (g) {
+    var gh = document.createElement('div'); gh.className = 'g-group label'; gh.textContent = g.name; gantt.appendChild(gh);
+    g.rows.forEach(function (r) {
+      var row = document.createElement('div'); row.className = 'g-row';
+      var nm = document.createElement('div'); nm.className = 'g-name';
+      nm.textContent = r.r;
+      var sm = document.createElement('small'); sm.textContent = r.o + ' · ' + r.t; nm.appendChild(sm);
+      var tr = document.createElement('div'); tr.className = 'g-track';
+      var bar = document.createElement('div');
+      bar.className = 'bar' + (r.e ? '' : ' ongoing');
+      bar.style.setProperty('--c', g.color);
+      bar.style.setProperty('--d', (bi++ * 0.07) + 's');
+      bar.style.left = pct(r.s) + '%';
+      bar.style.width = (pct(r.e || NOW) - pct(r.s)) + '%';
+      bar.tabIndex = 0;
+      bar.setAttribute('aria-label', r.r + ', ' + r.o + ', ' + r.t);
+      function show(e) {
+        tip.innerHTML = '<b></b><span></span>';
+        tip.querySelector('b').textContent = r.r;
+        tip.querySelector('span').textContent = r.o + ' · ' + r.t;
+        tip.hidden = false;
+        var rect = bar.getBoundingClientRect();
+        var x = e && e.clientX ? e.clientX : rect.left + rect.width / 2;
+        var w = tip.offsetWidth;
+        tip.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, x - w / 2)) + 'px';
+        tip.style.top = Math.max(8, rect.top - tip.offsetHeight - 10) + 'px';
+      }
+      function hide() { tip.hidden = true; }
+      bar.addEventListener('mousemove', show);
+      bar.addEventListener('mouseleave', hide);
+      bar.addEventListener('focus', function () { show(); });
+      bar.addEventListener('blur', hide);
+      tr.appendChild(bar);
+      row.appendChild(nm); row.appendChild(tr);
+      gantt.appendChild(row);
+    });
+  });
+  // "Today" marker across the tracks, positioned over the track column
+  var firstTrack = gantt.querySelector('.g-track');
+  function placeNow() {
+    var old = gantt.querySelector('.g-now'); if (old) old.remove();
+    var gr = gantt.getBoundingClientRect(), tr = firstTrack.getBoundingClientRect();
+    var m = document.createElement('div'); m.className = 'g-now';
+    m.style.left = (tr.left - gr.left + tr.width * pct(NOW) / 100) + 'px';
+    m.style.top = (axis.offsetHeight) + 'px';
+    m.innerHTML = '<span>Oct 2026</span>';
+    gantt.appendChild(m);
+  }
+  placeNow();
+  window.addEventListener('resize', placeNow);
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+
+  /* ---------- Count-up figures ---------- */
+  function countUp(root) {
+    root.querySelectorAll('[data-count]').forEach(function (n) {
+      var target = +n.dataset.count, t0 = null;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min(1, (ts - t0) / 1400), e = 1 - Math.pow(1 - p, 3);
+        n.textContent = Math.round(target * e).toLocaleString('en-US');
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  /* ---------- Scroll reveal: only arm what is below the fold ---------- */
+  if (!reduce && 'IntersectionObserver' in window) {
+    var targets = [document.getElementById('mapbox'), grid, gantt, document.getElementById('resultsbox')];
+    var vh = window.innerHeight;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        en.target.classList.remove('armed');
+        io.unobserve(en.target);
+      });
+    }, { threshold: 0.2 });
+    targets.forEach(function (t) {
+      if (t.getBoundingClientRect().top > vh * 0.9) { t.classList.add('armed'); io.observe(t); }
+      else t.classList.add('in');
+    });
+    var figs = document.getElementById('figures');
+    var fio = new IntersectionObserver(function (en) {
+      if (en[0].isIntersecting) { countUp(figs); fio.disconnect(); }
+    }, { threshold: 0.4 });
+    fio.observe(figs);
+    var sio = new IntersectionObserver(function (en) {
+      if (en[0].isIntersecting) { startSteps(); sio.disconnect(); }
+    }, { threshold: 0.4 });
+    sio.observe(stepBox);
+  }
+
+  /* ---------- Copy email ---------- */
+  var btn = document.getElementById('copy'), out = document.getElementById('copied'), email = document.getElementById('email');
+  btn.addEventListener('click', function () {
+    var text = email.textContent.trim();
+    function select() {
+      var r = document.createRange(); r.selectNodeContents(email);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      out.textContent = 'Selected. Press Ctrl+C to copy.';
+    }
+    try { navigator.clipboard.writeText(text).then(function () { out.textContent = 'Copied'; }, select); }
+    catch (e) { select(); }
+  });
+})();
 </script>
 </body>
 </html>
