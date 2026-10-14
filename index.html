@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hanane Kalakesh</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Hanane Kalakesh: youth programs lead at Mentor Arabia and Assistant Director of the Lebanese Red Cross Youth Sector, based in Beirut.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an architect's drawing sheet. Drafting grid behind the hero, a title block as the ID card,
+   then the sheet's "details": figures, track record, and the two parallel careers side by side. */
+:root {
+  --paper: #f4f7f8;
+  --sheet: #ffffff;
+  --ink: #14232b;
+  --muted: #56676f;
+  --line: #cfd8dc;
+  --grid: rgba(31, 90, 122, 0.08);
+  --blue: #1f5a7a;
+  --red: #c4302b;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e171c; --sheet: #142128; --ink: #e5ecef; --muted: #93a4ac;
+    --line: #2a3b44; --grid: rgba(111, 179, 214, 0.07); --blue: #74b6d8; --red: #ef6a5e;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e171c; --sheet: #142128; --ink: #e5ecef; --muted: #93a4ac;
+  --line: #2a3b44; --grid: rgba(111, 179, 214, 0.07); --blue: #74b6d8; --red: #ef6a5e;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1rem/1.6 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--blue); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 2px; }
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.label {
+  font: 500 0.72rem/1.3 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); font-weight: 600; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+p { margin: 0; }
+
+/* ---------- Hero ---------- */
+.hero {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border-bottom: 1px solid var(--line);
+}
+.hero .wrap {
+  padding-block: clamp(40px, 7vw, 88px) clamp(32px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: end;
+}
+.hero-text { display: grid; gap: 20px; min-width: 0; }
+.hero h1 {
+  font-size: clamp(2.8rem, 1.6rem + 6vw, 5.6rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+.hero h1 span { display: block; color: var(--blue); }
+.thesis { font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); line-height: 1.5; max-width: 34ch; }
+.thesis strong { font-weight: 600; }
+.hero-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 500 0.9rem/1 var(--body);
+  padding: 12px 16px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn.primary:hover { background: var(--blue); border-color: var(--blue); }
+
+/* Title block, the box in the corner of every architectural drawing */
+.titleblock {
+  background: var(--sheet);
+  border: 1.5px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  min-width: 0;
+}
+.titleblock .row {
+  display: grid;
+  grid-template-columns: 9.5em minmax(0, 1fr);
+  border-bottom: 1px solid var(--line);
+}
+.titleblock .row:last-child { border-bottom: 0; }
+.titleblock .k, .titleblock .v { padding: 9px 12px; }
+.titleblock .k {
+  color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.7rem;
+  border-right: 1px solid var(--line); display: flex; align-items: center;
+}
+.titleblock .v { color: var(--ink); overflow-wrap: anywhere; }
+.titleblock .head {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 10px 12px; background: var(--ink); color: var(--sheet);
+  letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.72rem;
+}
+.titleblock .dot { width: 9px; height: 9px; background: var(--red); border-radius: 50%; flex: none; }
+
+/* ---------- Sections ---------- */
+section { padding-block: clamp(48px, 7vw, 88px); }
+section + section { border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: 8px; margin-bottom: clamp(24px, 4vw, 40px); max-width: 60ch; }
+.sec-head p { color: var(--muted); }
+
+/* Figures */
+.figures {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+.fig { padding: 20px 16px 22px 0; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.fig + .fig { padding-left: 16px; border-left: 1px solid var(--line); }
+.fig .n {
+  font: 800 clamp(2rem, 1.4rem + 2vw, 2.9rem)/1 var(--display);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+.fig .n small { font-size: 0.5em; font-weight: 600; color: var(--muted); margin-left: 2px; }
+.fig p { font-size: 0.9rem; color: var(--muted); line-height: 1.45; }
+
+.countries { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; align-items: center; }
+.countries .label { margin-right: 6px; }
+.chip {
+  font: 500 0.82rem/1 var(--mono);
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  background: var(--sheet);
+}
+.chip.home { border-color: var(--red); color: var(--red); }
+
+/* Two tracks side by side */
+.tracks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 48px); }
+.track { min-width: 0; }
+.track-title {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding-bottom: 12px; border-bottom: 1.5px solid var(--ink); margin-bottom: 4px;
+}
+.track-title .label { white-space: nowrap; }
+.role {
+  display: grid;
+  grid-template-columns: 7.5em minmax(0, 1fr);
+  gap: 16px;
+  padding-block: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.role .when { font: 400 0.8rem/1.5 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.role .what { display: grid; gap: 6px; min-width: 0; }
+.role .org { font-size: 0.88rem; color: var(--muted); }
+.role ul { margin: 4px 0 0; padding-left: 1.1em; display: grid; gap: 4px; font-size: 0.95rem; }
+.role ul li::marker { color: var(--blue); }
+.role.now h3::after {
+  content: "Current";
+  font: 500 0.66rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--red); border: 1px solid currentColor; padding: 3px 6px; margin-left: 10px;
+  vertical-align: 3px;
+}
+
+/* Programs */
+.programs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; }
+.program {
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  padding: 20px;
+  display: grid; gap: 10px; align-content: start;
+}
+.program .where { font: 500 0.72rem/1.3 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+.program p { font-size: 0.93rem; color: var(--muted); }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1.5px solid var(--ink); }
+.skill { padding: 20px 20px 22px 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.skill + .skill { padding-left: 20px; border-left: 1px solid var(--line); }
+.skill:nth-child(3n+1) { padding-left: 0; border-left: 0; }
+.skill:nth-child(n+4) { border-top: 1px solid var(--line); }
+.skill p { font-size: 0.93rem; color: var(--muted); }
+
+/* Foundations */
+.found { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 0.8fr); gap: clamp(24px, 4vw, 48px); }
+.found > div { display: grid; gap: 14px; align-content: start; min-width: 0; }
+.found ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.found li { display: grid; gap: 2px; }
+.found li span { font-size: 0.88rem; color: var(--muted); }
+.arch-note {
+  border-left: 2px solid var(--red);
+  padding: 4px 0 4px 14px;
+  font-size: 0.95rem;
+}
+
+/* Contact */
+.contact { background: var(--ink); color: var(--paper); border-top: 0; }
+.contact .wrap { display: grid; gap: 24px; }
+.contact h2 { font-size: clamp(1.8rem, 1.3rem + 2vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em; max-width: 20ch; }
+.contact .label { color: color-mix(in srgb, var(--paper) 65%, transparent); }
+.contact-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.contact .email {
+  font: 500 clamp(1rem, 0.9rem + 0.6vw, 1.3rem)/1.2 var(--mono);
+  user-select: all; overflow-wrap: anywhere;
+}
+.contact .btn { border-color: var(--paper); color: var(--paper); }
+.contact .btn:hover { background: var(--paper); color: var(--ink); }
+.contact a.plain { color: var(--paper); }
+.copied { font: 400 0.8rem var(--mono); color: color-mix(in srgb, var(--paper) 70%, transparent); }
+footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+/* Responsive */
+@media (max-width: 880px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fig, .fig + .fig { padding: 18px 12px 18px 0; border-left: 0; }
+  .fig:nth-child(2n) { padding-left: 14px; border-left: 1px solid var(--line); }
+  .fig:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .fig:last-child { grid-column: 1 / -1; padding-left: 0; border-left: 0; }
+  .tracks, .found { grid-template-columns: minmax(0, 1fr); }
+  .skills { grid-template-columns: minmax(0, 1fr); }
+  .skill, .skill + .skill { padding-left: 0; border-left: 0; }
+  .skill + .skill { border-top: 1px solid var(--line); }
+}
+@media (max-width: 420px) {
+  .role { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .titleblock .row { grid-template-columns: 7.5em minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1, .thesis, .hero-links, .titleblock { animation: rise 0.6s ease-out both; }
+  .thesis { animation-delay: 0.08s; }
+  .hero-links { animation-delay: 0.14s; }
+  .titleblock { animation-delay: 0.2s; }
+  @keyframes rise { from { transform: translateY(10px); } to { transform: none; } }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <p class="label">Youth programs &amp; capacity building · Beirut</p>
+      <h1>Hanane <span>Kalakesh</span></h1>
+      <p class="thesis">I design and run <strong>youth mentoring programs across seven Arab countries</strong> at Mentor Arabia, and I lead the Youth Sector of the Lebanese Red Cross as Assistant Director.</p>
+      <div class="hero-links">
+        <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn" href="https://linkedin.com/in/hanan-kalakish" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <aside class="titleblock" aria-label="Profile summary">
+      <div class="head"><span>Sheet HK-01 · Profile</span><span class="dot" aria-hidden="true"></span></div>
+      <div class="row"><div class="k">Role</div><div class="v">Programs Associate, Mentor Arabia</div></div>
+      <div class="row"><div class="k">Volunteer</div><div class="v">Assistant Director, Youth Sector, Lebanese Red Cross</div></div>
+      <div class="row"><div class="k">Region</div><div class="v">IFRC MENA Youth Network</div></div>
+      <div class="row"><div class="k">Trained as</div><div class="v">Architect (MArch, Lebanese University)</div></div>
+      <div class="row"><div class="k">Languages</div><div class="v">Arabic (native), English (fluent)</div></div>
+      <div class="row"><div class="k">Based in</div><div class="v">Beirut, Lebanon</div></div>
+      <div class="row"><div class="k">Revision</div><div class="v">October 2026</div></div>
+    </aside>
+  </div>
+</header>
+
+<main>
+  <section id="impact">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">At a glance</p>
+        <h2>Five years of programs, ten years of volunteering</h2>
+      </div>
+      <div class="figures">
+        <div class="fig"><div class="n">15,000<small>+</small></div><p>young people reached through Mentor Arabia programs</p></div>
+        <div class="fig"><div class="n">$4M<small>+</small></div><p>in cumulative program budgets managed</p></div>
+        <div class="fig"><div class="n">7</div><p>countries in the portfolio, with national teams in each</p></div>
+        <div class="fig"><div class="n">200<small>+</small></div><p>trainers supervised across 34 Red Cross centers</p></div>
+        <div class="fig"><div class="n">2,500<small>+</small></div><p>volunteers covered by the yearly training plans I built</p></div>
+      </div>
+      <div class="countries" aria-label="Countries">
+        <span class="label">Where the work runs</span>
+        <span class="chip home">Lebanon</span>
+        <span class="chip">Saudi Arabia</span>
+        <span class="chip">Jordan</span>
+        <span class="chip">Kuwait</span>
+        <span class="chip">Qatar</span>
+        <span class="chip">Tunisia</span>
+        <span class="chip">Egypt</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Experience</p>
+        <h2>Two careers that run in parallel</h2>
+        <p>My paid work is at Mentor Arabia. Since 2016 I've also grown up through the Lebanese Red Cross Youth Sector, from university volunteer to Assistant Director.</p>
+      </div>
+
+      <div class="tracks">
+        <div class="track">
+          <div class="track-title"><h3>Mentor Arabia</h3><span class="label">2022 – now</span></div>
+
+          <div class="role now">
+            <div class="when">Apr 2025 –<br>present</div>
+            <div class="what">
+              <h3>Programs Associate</h3>
+              <p class="org">Mentor Arabia · Beirut</p>
+              <ul>
+                <li>Design and run youth mentoring programs across seven Arab countries</li>
+                <li>Lead resource mobilization and donor relations for a portfolio of nearly USD 2 million</li>
+                <li>Write proposals, budgets, logframes and work plans; prepare donor reports</li>
+                <li>Guide national teams and partners in each country</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="role">
+            <div class="when">May 2022 –<br>Apr 2025</div>
+            <div class="what">
+              <h3>Programs Assistant</h3>
+              <p class="org">Mentor Arabia · Beirut</p>
+              <ul>
+                <li>Adapted and contextualized programs for each country and culture</li>
+                <li>Trained facilitators so programs ran the same way across locations</li>
+                <li>Ran monitoring and evaluation and fed the findings back into program design</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="role">
+            <div class="when">Jun 2021 –<br>Apr 2022</div>
+            <div class="what">
+              <h3>Life Skills Content Developer &amp; Trainer</h3>
+              <p class="org">Independent consultant · Lebanon</p>
+              <ul>
+                <li>Built the online life skills curriculum for Unplugged Plus, for adolescents</li>
+                <li>Wrote coaching materials and mentorship frameworks for peer-support initiatives</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="track">
+          <div class="track-title"><h3>Lebanese Red Cross &amp; IFRC</h3><span class="label">2016 – now</span></div>
+
+          <div class="role now">
+            <div class="when">2024 –<br>present</div>
+            <div class="what">
+              <h3>Assistant Director, Youth Sector</h3>
+              <p class="org">Lebanese Red Cross</p>
+              <ul>
+                <li>Lead youth sector programs nationally</li>
+                <li>Shape training frameworks, leadership development and operational strategy</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="role">
+            <div class="when">2022 –<br>2024</div>
+            <div class="what">
+              <h3>Training Committee Coordinator</h3>
+              <p class="org">Lebanese Red Cross</p>
+              <ul>
+                <li>Supervised a national network of 200+ trainers across 34 centers</li>
+                <li>Led a 20-person task force on training standards</li>
+                <li>Built tracking tools that made monitoring 30% more efficient</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="role">
+            <div class="when">2022 –<br>present</div>
+            <div class="what">
+              <h3>Regional Youth Coordinator</h3>
+              <p class="org">MENA Youth Network, IFRC</p>
+              <ul>
+                <li>Co-host monthly virtual Youth Cafés connecting young humanitarian leaders across MENA National Societies</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="role">
+            <div class="when">2016 –<br>present</div>
+            <div class="what">
+              <h3>Trainer, Coach &amp; Volunteer Manager</h3>
+              <p class="org">Lebanese Red Cross</p>
+              <ul>
+                <li>Run Training of Trainers and coach new facilitators</li>
+                <li>Wrote modules on management skills, the project cycle and center operations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="programs">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Selected programs</p>
+        <h2>Some of the work behind the numbers</h2>
+      </div>
+      <div class="programs">
+        <article class="program">
+          <span class="where">Tunisia · with TUI</span>
+          <h3>FutureShapers</h3>
+          <p>Project management of the youth program in Tunisia, from the courses platform to training of trainers and the closing ceremony.</p>
+        </article>
+        <article class="program">
+          <span class="where">Regional · with Education Above All</span>
+          <h3>YEED</h3>
+          <p>Youth program delivered with Education Above All, including planning, partner coordination and financial reporting.</p>
+        </article>
+        <article class="program">
+          <span class="where">Saudi Arabia &amp; online</span>
+          <h3>Unplugged Plus</h3>
+          <p>Life skills program for adolescents. I wrote its online curriculum and support its delivery with partners.</p>
+        </article>
+        <article class="program">
+          <span class="where">Saudi Arabia · with CCA</span>
+          <h3>Positive Parenting</h3>
+          <p>Parenting program delivered with CCA in Saudi Arabia, alongside Unplugged Plus.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">What I bring</p>
+        <h2>Core skills</h2>
+      </div>
+      <div class="skills">
+        <div class="skill"><h3>Program design</h3><p>Needs assessment, strategic planning, contextualizing programs for each country</p></div>
+        <div class="skill"><h3>Project management</h3><p>Budgets, work plans, logframes, multi-country coordination</p></div>
+        <div class="skill"><h3>MEAL</h3><p>Monitoring and evaluation, impact assessment, data management, donor reporting</p></div>
+        <div class="skill"><h3>Resource mobilization</h3><p>Proposal writing, donor relations, partnership development</p></div>
+        <div class="skill"><h3>Capacity building</h3><p>Training design and delivery, Training of Trainers, coaching, curriculum development</p></div>
+        <div class="skill"><h3>Facilitation</h3><p>Public speaking, workshops, community outreach, Adobe Photoshop and Illustrator for materials</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="foundations">
+    <div class="wrap found">
+      <div>
+        <p class="label">Education</p>
+        <ul>
+          <li><strong>Master of Architecture (MArch)</strong><span>Lebanese University, Faculty of Fine Arts and Architecture · 2019–2021</span></li>
+          <li><strong>Bachelor of Architecture (BArch)</strong><span>Lebanese University, Faculty of Fine Arts and Architecture · 2015–2019</span></li>
+        </ul>
+        <p class="arch-note">I trained as an architect before moving into humanitarian work. I still start every program the same way: with the plan.</p>
+      </div>
+      <div>
+        <p class="label">Certifications</p>
+        <ul>
+          <li><strong>Coaching Certification</strong><span>Lebanese Red Cross · 2022</span></li>
+          <li><strong>General &amp; Applied Trainer Courses</strong><span>Lebanese Red Cross · 2021</span></li>
+          <li><strong>Youth Leadership Program</strong><span>UNDP · 2021</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="label">Languages</p>
+        <ul>
+          <li><strong>Arabic</strong><span>Native</span></li>
+          <li><strong>English</strong><span>Fluent</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="label">Contact</p>
+      <h2>Working on youth programs in the region? Let's talk.</h2>
+      <div class="contact-row">
+        <span class="email" id="email">hanane.kalakesh@gmail.com</span>
+        <button class="btn" id="copy" type="button">Copy email</button>
+        <span class="copied" id="copied" aria-live="polite"></span>
+      </div>
+      <p><a class="plain" href="https://linkedin.com/in/hanan-kalakish" target="_blank" rel="noopener">linkedin.com/in/hanan-kalakish</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span class="label">Hanane Kalakesh · Beirut</span>
+  <span class="label">Sheet HK-01 · Rev. Oct 2026</span>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copy');
+    var out = document.getElementById('copied');
+    var email = document.getElementById('email');
+    btn.addEventListener('click', function () {
+      var text = email.textContent.trim();
+      function select() {
+        var r = document.createRange(); r.selectNodeContents(email);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        out.textContent = 'Selected. Press Ctrl+C to copy.';
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () { out.textContent = 'Copied'; }, select);
+      } catch (e) { select(); }
+    });
+  })();
+</script>
+</body>
+</html>
