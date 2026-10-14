@@ -229,7 +229,10 @@ svg.map { display: block; width: 100%; min-width: 620px; height: auto; }
 .contact h2 { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 3.1rem); font-weight: 800; letter-spacing: -0.025em; max-width: 18ch; }
 .contact .label { color: color-mix(in srgb, var(--paper) 65%, transparent); }
 .contact-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.contact .email { font: 500 clamp(1rem, 0.9rem + 0.6vw, 1.3rem)/1.2 var(--mono); user-select: all; overflow-wrap: anywhere; }
+.contact .email { font: 500 clamp(1rem, 0.9rem + 0.6vw, 1.3rem)/1.2 var(--mono); overflow-wrap: anywhere; color: var(--paper); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.contact .email:hover { text-decoration-color: var(--red); }
+.contact .btn.primary-light { background: var(--paper); color: var(--ink); }
+.contact .btn.primary-light:hover { background: var(--red); border-color: var(--red); color: var(--paper); }
 .contact .btn { border-color: var(--paper); color: var(--paper); }
 .contact .btn:hover { background: var(--paper); color: var(--ink); }
 .contact a.plain { color: var(--paper); }
@@ -617,8 +620,9 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
       <p class="label">Contact</p>
       <h2>Working on youth programs in the region? Let's talk.</h2>
       <div class="contact-row">
-        <span class="email" id="email">hanane.kalakesh@gmail.com</span>
-        <button class="btn" id="copy" type="button">Copy email</button>
+        <a class="email" id="email" href="mailto:hanane.kalakesh@gmail.com?subject=Hello%20Hanane">hanane.kalakesh@gmail.com</a>
+        <a class="btn primary-light" href="mailto:hanane.kalakesh@gmail.com?subject=Hello%20Hanane">Send me an email</a>
+        <button class="btn" id="copy" type="button">Copy address</button>
         <span class="copied" id="copied" aria-live="polite"></span>
       </div>
       <p><a class="plain" href="https://linkedin.com/in/hanan-kalakish" target="_blank" rel="noopener">linkedin.com/in/hanan-kalakish</a></p>
