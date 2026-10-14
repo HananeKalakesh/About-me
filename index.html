@@ -274,6 +274,106 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
   .step + .step { border-top: 1px solid var(--line); }
 }
 
+
+/* ---------- Phone layout: swipe rows instead of long stacks, a bottom section bar ---------- */
+.phone-nav, .more-btn, .swipe-hint { display: none; }
+@media (max-width: 620px) {
+  section { padding-block: 44px; }
+  .sec-head { margin-bottom: 22px; gap: 8px; }
+  .sec-head p { font-size: 0.95rem; }
+  h2 { font-size: 1.5rem; }
+  .hero .wrap { padding-block: 32px 28px; gap: 22px; }
+  .hero-text { gap: 16px; }
+  .titleblock .row.opt { display: none; }
+
+  /* Swipe rows: bleed to the screen edges, snap card by card */
+  .swipe {
+    display: grid !important; grid-auto-flow: column; grid-template-columns: none !important;
+    grid-auto-columns: 78%; gap: 12px !important;
+    overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+    margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+    margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    scroll-padding-left: max(16px, env(safe-area-inset-left, 0px));
+    scrollbar-width: none;
+  }
+  .swipe::-webkit-scrollbar { display: none; }
+  .swipe > * { scroll-snap-align: start; }
+  .swipe-hint { display: block; font: 500 0.68rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+
+  /* Figures become swipeable tiles */
+  .figures.swipe { border: 0; grid-auto-columns: 46%; }
+  .figures.swipe .fig, .figures.swipe .fig + .fig {
+    background: var(--sheet); border: 1px solid var(--line); border-top: 2px solid var(--ink);
+    padding: 14px; grid-column: auto;
+  }
+  .fig .n { font-size: 2rem; }
+
+  /* What I do: swipe cards */
+  .method.swipe { border: 0; }
+  .method.swipe::before { display: none; }
+  .method.swipe .step, .method.swipe .step + .step {
+    background: var(--sheet); border: 1px solid var(--line); border-top: 2px solid var(--ink);
+    padding: 16px; grid-column: auto;
+  }
+  .method.swipe .step.active { border-top-color: var(--red); }
+
+  /* Built-work lists: show the first two, the rest on demand */
+  .lrc { gap: 18px; }
+  .lrc-text .lead { font-size: 1.1rem; }
+  .built:not(.open) li:nth-child(n+3) { display: none; }
+  .more-btn {
+    display: inline-flex; align-self: start; font: 500 0.82rem/1 var(--body); color: var(--ink);
+    background: transparent; border: 1px solid var(--line); padding: 10px 14px; cursor: pointer;
+  }
+  .tier { grid-template-columns: 6.2em minmax(0, 1fr); gap: 12px; padding-block: 10px; }
+  .tier .tn b { font-size: 1.25rem; }
+  .tier .tn span { font-size: 0.72rem; }
+
+  /* Trips: swipe cards */
+  .abroad-grid.swipe { grid-auto-columns: 84%; }
+  .trip .art { height: 96px; }
+
+  /* Gantt: one compact line per role */
+  .g-axis, .g-row { grid-template-columns: 8.5em minmax(0, 1fr); gap: 10px; }
+  .g-axis > div:first-child { display: block; }
+  .g-row { padding-block: 3px; }
+  .g-name { font-size: 0.74rem; line-height: 1.25; }
+  .g-name small { display: none; }
+  .g-group { padding: 10px 0 2px; }
+  .g-years span:nth-child(even) { display: none; }
+
+  /* Skills as a compact two-column grid of names */
+  .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 0; gap: 8px; }
+  .skill, .skill + .skill, .skill:nth-child(3n+1) { padding: 12px; border: 1px solid var(--line); background: var(--sheet); }
+  .skill:nth-child(n+4) { border-top: 1px solid var(--line); }
+  .skill h3 { font-size: 0.95rem; }
+  .skill p { display: none; }
+
+  .found { gap: 26px; }
+  .contact h2 { font-size: 1.8rem; }
+
+  /* Bottom section bar */
+  body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
+  .phone-nav {
+    display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+    background: color-mix(in srgb, var(--sheet) 92%, transparent);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--line);
+    padding: 6px max(8px, env(safe-area-inset-right, 0px)) calc(6px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px));
+    justify-content: space-between; gap: 2px;
+  }
+  .phone-nav a {
+    flex: 1; min-width: 0; display: grid; justify-items: center; gap: 4px; padding: 6px 2px;
+    text-decoration: none; color: var(--muted); font: 500 0.6rem/1 var(--mono); letter-spacing: 0.04em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .phone-nav a i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.4; }
+  .phone-nav a.on { color: var(--red); }
+  .phone-nav a.on i { opacity: 1; }
+}
+
 /* ---------- Motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .tagline, .thesis, .hero-links, .titleblock, .dim { animation: rise 0.7s cubic-bezier(.2,.7,.2,1) both; }
@@ -349,9 +449,9 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
       <div class="head"><span>Sheet HK-01 · Profile</span><span class="pulse" aria-hidden="true"></span></div>
       <div class="row"><div class="k">Work</div><div class="v">Programs Associate, Mentor Arabia</div></div>
       <div class="row"><div class="k">Volunteer</div><div class="v">Assistant Director, Youth Sector, Lebanese Red Cross</div></div>
-      <div class="row"><div class="k">Region</div><div class="v">Regional Youth Coordinator, IFRC MENA Youth Network</div></div>
-      <div class="row"><div class="k">Trained as</div><div class="v">Architect (MArch, Lebanese University)</div></div>
-      <div class="row"><div class="k">Languages</div><div class="v">Arabic (native), English (fluent)</div></div>
+      <div class="row opt"><div class="k">Region</div><div class="v">Regional Youth Coordinator, IFRC MENA Youth Network</div></div>
+      <div class="row opt"><div class="k">Trained as</div><div class="v">Architect (MArch, Lebanese University)</div></div>
+      <div class="row opt"><div class="k">Languages</div><div class="v">Arabic (native), English (fluent)</div></div>
       <div class="row"><div class="k">Revision</div><div class="v">October 2026</div></div>
     </aside>
   </div>
@@ -364,7 +464,7 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
         <p class="label"><span class="sheet-no">A-01</span> · At a glance</p>
         <h2>Five years of programs, ten years of volunteering</h2>
       </div>
-      <div class="figures" id="figures">
+      <div class="figures swipe-m" id="figures">
         <div class="fig"><div class="n"><span data-count="15000">15,000</span><small>+</small></div><p>young people reached through the programs I manage</p></div>
         <div class="fig"><div class="n">$<span data-count="4">4</span>M<small>+</small></div><p>in cumulative program budgets managed</p></div>
         <div class="fig"><div class="n"><span data-count="7">7</span></div><p>Arab countries, with national teams in each</p></div>
@@ -409,7 +509,7 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
         <h2>What I do, day to day</h2>
         <p>Across a multi-country youth portfolio, I carry a program from the first idea to the final report.</p>
       </div>
-      <div class="method" id="steps">
+      <div class="method swipe-m" id="steps">
         <div class="step">
           <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="8" width="28" height="24" rx="2"></rect><path d="M6 15h28M13 8v-3M27 8v-3M12 21h6M12 26h10"></path></svg>
           <h3>Manage projects</h3>
@@ -504,7 +604,7 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
         <h2>Learning with youth workers across Europe and the region</h2>
         <p>Through SALTO trainings and the IFRC MENA Youth Network, I keep picking up new ways to work with young people.</p>
       </div>
-      <div class="abroad-grid" id="trips">
+      <div class="abroad-grid swipe-m" id="trips">
         <article class="trip" style="--d: 0s">
           <div class="art">
             <svg viewBox="0 0 260 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
@@ -643,6 +743,15 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
   <span class="label">Hanane Kalakesh · Beirut</span>
   <span class="label">Sheet HK-01 · Rev. Oct 2026</span>
 </footer>
+
+<nav class="phone-nav" id="phonenav" aria-label="Sections">
+  <a href="#impact"><i></i>Glance</a>
+  <a href="#where"><i></i>Map</a>
+  <a href="#mentor"><i></i>Programs</a>
+  <a href="#built"><i></i>Red Cross</a>
+  <a href="#abroad"><i></i>Abroad</a>
+  <a href="#contact"><i></i>Contact</a>
+</nav>
 
 <div class="tip" id="tip" hidden></div>
 
@@ -841,6 +950,48 @@ footer.wrap { padding-block: 20px; display: flex; flex-wrap: wrap; justify-conte
     fio.observe(figs);
     var sio = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { startSteps(); sio.disconnect(); } }, { threshold: 0.4 });
     sio.observe(stepBox);
+  }
+
+
+  /* ---------- Phone layout ---------- */
+  var phone = window.matchMedia('(max-width: 620px)');
+  function applyPhone() {
+    document.querySelectorAll('.swipe-m').forEach(function (box) {
+      box.classList.toggle('swipe', phone.matches);
+      var hint = box.nextElementSibling;
+      if (phone.matches && !(hint && hint.classList.contains('swipe-hint'))) {
+        var h = document.createElement('p'); h.className = 'swipe-hint'; h.setAttribute('aria-hidden', 'true');
+        h.textContent = 'Swipe for more →';
+        box.parentNode.insertBefore(h, box.nextSibling);
+      }
+    });
+    if (typeof placeNow === 'function') placeNow();
+  }
+  document.querySelectorAll('.built').forEach(function (list) {
+    var n = list.children.length;
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'more-btn';
+    b.textContent = 'Show all ' + n;
+    b.setAttribute('aria-expanded', 'false');
+    b.addEventListener('click', function () {
+      var open = list.classList.toggle('open');
+      b.textContent = open ? 'Show less' : 'Show all ' + n;
+      b.setAttribute('aria-expanded', String(open));
+    });
+    list.parentNode.insertBefore(b, list.nextSibling);
+  });
+  applyPhone();
+  if (phone.addEventListener) phone.addEventListener('change', applyPhone);
+
+  var navLinks = document.querySelectorAll('#phonenav a');
+  if ('IntersectionObserver' in window) {
+    var navIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        navLinks.forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + en.target.id); });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    navLinks.forEach(function (a) { var t = document.querySelector(a.getAttribute('href')); if (t) navIO.observe(t); });
   }
 
   /* ---------- Copy email ---------- */
